@@ -69,7 +69,7 @@
   }
 
   .nav-logo img {
-    height: 50px;
+    height: 40px;
     width: auto;
   }
 
@@ -1497,15 +1497,41 @@
   });
 
   // ── FORM ──
-  function submitForm() {
-    const email = document.getElementById('email').value;
-    const fname = document.getElementById('fname').value;
+  async function submitForm() {
+    const fname = document.getElementById('fname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const lname = document.getElementById('lname').value.trim();
+    const company = document.getElementById('company').value.trim();
+    const sector = document.getElementById('sector').value;
+    const message = document.getElementById('message').value.trim();
+
     if (!fname || !email) {
       alert(currentLang === 'fr' ? 'Merci de remplir au moins votre prénom et email.' : 'Please fill in at least your name and email.');
       return;
     }
-    document.getElementById('formContainer').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+
+    const btn = document.querySelector('.form-submit');
+    btn.textContent = currentLang === 'fr' ? 'Envoi en cours…' : 'Sending…';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('https://formspree.io/f/mgobagez', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ Prenom: fname, Nom: lname, Email: email, Telephone: phone, Entreprise: company, Secteur: sector, Message: message })
+      });
+      if (res.ok) {
+        document.getElementById('formContainer').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        throw new Error('Erreur serveur');
+      }
+    } catch(e) {
+      alert(currentLang === 'fr' ? 'Une erreur est survenue, merci de réessayer.' : 'An error occurred, please try again.');
+      btn.textContent = currentLang === 'fr' ? 'Envoyer ma demande →' : 'Send my request →';
+      btn.disabled = false;
+    }
   }
 
   // ── INTERSECTION OBSERVER for scroll animations ──
