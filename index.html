@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alya — Votre Solution, Notre Priorité</title>
+<meta name="description" content="Alya est une agence de développement commercial B2B basée à Strasbourg. Prise de RDV qualifiés, acquisition clients, prospection téléphonique premium.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B3E;
+    --navy-light: #162248;
+    --teal: #00BCD4;
+    --teal-dark: #0097A7;
+    --teal-light: #E0F7FA;
+    --white: #FFFFFF;
+    --off-white: #F7F9FC;
+    --gray-light: #EEF1F6;
+    --gray-mid: #8A9BB8;
+    --gray-dark: #4A5568;
+    --text: #0A1628;
+    --border: rgba(13,27,62,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .serif { font-family: 'Cormorant Garamond', serif; }
+
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; line-height: 1.15; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s ease;
+  }
+
+  nav.scrolled {
+    height: 60px;
+    box-shadow: 0 2px 20px rgba(13,27,62,0.08);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-logo img {
+    height: 40px;
+    width: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--gray-dark);
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--teal-dark); }
+
+  .nav-lang {
+    display: flex;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .lang-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: var(--gray-mid);
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+  }
+
+  .lang-btn.active {
+    color: var(--teal-dark);
+    background: var(--teal-light);
+  }
+
+  .nav-cta {
+    background: var(--navy);
+    color: white !important;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--navy-light) !important; color: white !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--navy);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 5% 80px;
+    position: relative;
+    overflow: hidden;
+    background: var(--navy);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,188,212,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,188,212,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,188,212,0.12);
+    border: 1px solid rgba(0,188,212,0.25);
+    color: var(--teal);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 5vw, 68px);
+    color: white;
+    margin-bottom: 24px;
+    line-height: 1.1;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--teal);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--teal);
+    color: var(--navy);
+    padding: 14px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-primary:hover {
+    background: #00ACC1;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0,188,212,0.3);
+  }
+
+  .btn-ghost {
+    display: inline-block;
+    background: transparent;
+    color: rgba(255,255,255,0.75);
+    padding: 14px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 15px;
+    transition: all 0.2s;
+    border: 1px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-ghost:hover {
+    border-color: rgba(255,255,255,0.5);
+    color: white;
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .hero-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 32px;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .hero-stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .hero-stat {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 500;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .hero-stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+  }
+
+  .hero-pitch {
+    background: rgba(0,188,212,0.08);
+    border: 1px solid rgba(0,188,212,0.2);
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+  }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 100px 5%; }
+
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-size: clamp(32px, 4vw, 52px);
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+
+  .section-sub {
+    font-size: 16px;
+    color: var(--gray-dark);
+    line-height: 1.75;
+    max-width: 580px;
+    font-weight: 300;
+  }
+
+  /* ── PROOF BAR ── */
+  .proof-bar {
+    background: var(--off-white);
+    padding: 32px 5%;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .proof-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .proof-item {
+    text-align: center;
+  }
+
+  .proof-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .proof-label {
+    font-size: 13px;
+    color: var(--gray-mid);
+    font-weight: 300;
+  }
+
+  .proof-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--border);
+  }
+
+  /* ── WHY ALYA ── */
+  .why { background: white; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 60px;
+  }
+
+  .why-list { list-style: none; }
+
+  .why-item {
+    display: flex;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .why-item:first-child { padding-top: 0; }
+  .why-item:last-child { border-bottom: none; }
+
+  .why-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--teal-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .why-icon svg { width: 20px; height: 20px; color: var(--teal-dark); }
+
+  .why-item-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .why-item-text {
+    font-size: 14px;
+    color: var(--gray-dark);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .why-visual {
+    position: sticky;
+    top: 100px;
+  }
+
+  .why-card {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 36px;
+    color: white;
+  }
+
+  .why-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .why-card-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+
+  .why-checklist { list-style: none; }
+
+  .why-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    font-weight: 300;
+  }
+
+  .why-check:last-child { border-bottom: none; }
+
+  .check-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(0,188,212,0.2);
+    border: 1px solid rgba(0,188,212,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .check-icon::after {
+    content: '';
+    width: 6px;
+    height: 4px;
+    border-left: 1.5px solid var(--teal);
+    border-bottom: 1.5px solid var(--teal);
+    transform: rotate(-45deg) translateY(-1px);
+  }
+
+  /* ── SERVICES ── */
+  .services { background: var(--off-white); }
+
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .service-card {
+    background: white;
+    border-radius: 14px;
+    padding: 36px 28px;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--teal);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(13,27,62,0.1);
+    border-color: rgba(0,188,212,0.2);
+  }
+
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 500;
+    color: rgba(0,188,212,0.12);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .service-title {
+    font-size: clamp(18px, 2vw, 22px);
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .service-text {
+    font-size: 14px;
+    color: var(--gray-dark);
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .service-tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: var(--teal-light);
+    color: var(--teal-dark);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── PROCESS ── */
+  .process { background: white; }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 60px;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc(12.5% + 28px);
+    right: calc(12.5% + 28px);
+    height: 1px;
+    background: linear-gradient(90deg, var(--teal) 0%, rgba(0,188,212,0.2) 100%);
+  }
+
+  .process-step {
+    text-align: center;
+    padding: 0 24px;
+    position: relative;
+  }
+
+  .step-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+    border: 3px solid white;
+    box-shadow: 0 0 0 1px var(--teal);
+  }
+
+  .step-title {
+    font-size: 16px;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .step-text {
+    font-size: 13px;
+    color: var(--gray-dark);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* ── TARGET ── */
+  .target { background: var(--off-white); }
+
+  .target-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-top: 60px;
+  }
+
+  .target-profiles { display: flex; flex-direction: column; gap: 16px; }
+
+  .profile-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: border-color 0.2s;
+  }
+
+  .profile-card:hover { border-color: rgba(0,188,212,0.3); }
+
+  .profile-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--teal);
+    font-weight: 500;
+  }
+
+  .profile-info { flex: 1; }
+
+  .profile-role {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .profile-sector {
+    font-size: 12px;
+    color: var(--gray-mid);
+    font-weight: 300;
+  }
+
+  .profile-badge {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: var(--teal-light);
+    color: var(--teal-dark);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .target-text { display: flex; flex-direction: column; gap: 24px; }
+
+  .target-block {
+    padding-left: 20px;
+    border-left: 2px solid var(--teal);
+  }
+
+  .target-block-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .target-block-text {
+    font-size: 14px;
+    color: var(--gray-dark);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* ── CONTACT ── */
+  .contact { background: var(--navy); }
+
+  .contact .section-title { color: white; }
+  .contact .section-sub { color: rgba(255,255,255,0.6); }
+  .contact .section-tag { color: var(--teal); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    margin-top: 56px;
+    align-items: start;
+  }
+
+  .contact-info { display: flex; flex-direction: column; gap: 24px; }
+
+  .contact-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .contact-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-icon svg { width: 18px; height: 18px; color: var(--teal); }
+
+  .contact-block-title {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 4px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 11px;
+  }
+
+  .contact-block-val {
+    font-size: 15px;
+    color: white;
+    font-weight: 400;
+  }
+
+  .contact-form {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 40px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .form-group:last-of-type { margin-bottom: 24px; }
+
+  label {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  input, select, textarea {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: white;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.25); }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: rgba(0,188,212,0.5);
+  }
+
+  select option { background: var(--navy); }
+
+  textarea { resize: vertical; min-height: 100px; }
+
+  .form-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--teal);
+    color: var(--navy);
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+  }
+
+  .form-submit:hover {
+    background: #00ACC1;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0,188,212,0.3);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #070E20;
+    padding: 32px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-copy {
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+    font-weight: 300;
+  }
+
+  .footer-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: rgba(255,255,255,0.2);
+    font-style: italic;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-visual { display: none; }
+    .why-grid { grid-template-columns: 1fr; gap: 48px; }
+    .why-visual { position: static; }
+    .services-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .process-steps::before { display: none; }
+    .target-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .proof-divider { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    section { padding: 70px 5%; }
+    .process-steps { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; align-items: flex-start; }
+    .contact-form { padding: 24px; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up { opacity: 0; animation: fadeUp 0.6s ease forwards; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+
+  /* ── MOBILE MENU ── */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 72px; left: 0; right: 0;
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 20px 5%;
+    z-index: 99;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 8px 24px rgba(13,27,62,0.1);
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    text-decoration: none;
+    font-size: 15px;
+    color: var(--gray-dark);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mobile-menu a:last-child { border-bottom: none; }
+
+  /* Success message */
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 32px;
+    color: var(--teal);
+  }
+
+  .form-success .serif { font-size: 28px; margin-bottom: 8px; display: block; }
+  .form-success p { font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 300; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="logo-alya-light.png" alt="Alya" id="nav-logo-img" onerror="this.style.display='none'; document.getElementById('nav-logo-text').style.display='block'">
+    <span id="nav-logo-text" style="display:none; font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:500; color:var(--navy);">ALYA</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#pourquoi" data-fr="Pourquoi Alya" data-en="Why Alya">Pourquoi Alya</a></li>
+    <li><a href="#services" data-fr="Nos services" data-en="Our services">Nos services</a></li>
+    <li><a href="#processus" data-fr="Notre approche" data-en="Our approach">Notre approche</a></li>
+    <li><a href="#contact" class="nav-cta" data-fr="Demander un devis" data-en="Request a quote">Demander un devis</a></li>
+  </ul>
+
+  <div style="display:flex; align-items:center; gap:16px;">
+    <div class="nav-lang">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#pourquoi" onclick="toggleMenu()" data-fr="Pourquoi Alya" data-en="Why Alya">Pourquoi Alya</a>
+  <a href="#services" onclick="toggleMenu()" data-fr="Nos services" data-en="Our services">Nos services</a>
+  <a href="#processus" onclick="toggleMenu()" data-fr="Notre approche" data-en="Our approach">Notre approche</a>
+  <a href="#contact" onclick="toggleMenu()" data-fr="Demander un devis" data-en="Request a quote">Demander un devis</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-tag fade-up" data-fr="Agence B2B · Strasbourg · 100% Français" data-en="B2B Agency · Strasbourg · 100% French">
+        Agence B2B · Strasbourg · 100% Français
+      </div>
+      <h1 class="fade-up delay-1">
+        <span data-fr="Votre prospection B2B,<br><em>entièrement gérée.</em>" data-en="Your B2B prospecting,<br><em>fully managed.</em>">
+          Votre prospection B2B,<br><em>entièrement gérée.</em>
+        </span>
+      </h1>
+      <p class="hero-sub fade-up delay-2" data-fr="Nous prenons en charge toute votre prospection commerciale et vous livrons des rendez-vous qualifiés — vous n'avez plus qu'à closer." data-en="We handle all your commercial prospecting and deliver qualified appointments — you just have to close.">
+        Nous prenons en charge toute votre prospection commerciale et vous livrons des rendez-vous qualifiés — vous n'avez plus qu'à closer.
+      </p>
+      <div class="hero-actions fade-up delay-3">
+        <a href="#contact" class="btn-primary" data-fr="Obtenir un devis gratuit" data-en="Get a free quote">Obtenir un devis gratuit</a>
+        <a href="#services" class="btn-ghost" data-fr="Découvrir nos services" data-en="Discover our services">Découvrir nos services</a>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-up delay-4">
+      <div class="hero-card">
+        <div class="hero-stat-row">
+          <div class="hero-stat">
+            <div class="hero-stat-num">+40%</div>
+            <div class="hero-stat-label" data-fr="de RDV générés" data-en="more appointments">de RDV générés</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">J+5</div>
+            <div class="hero-stat-label" data-fr="Démarrage rapide" data-en="Quick start">Démarrage rapide</div>
+          </div>
+        </div>
+        <div class="hero-stat-row">
+          <div class="hero-stat">
+            <div class="hero-stat-num">100%</div>
+            <div class="hero-stat-label" data-fr="Agents français" data-en="French agents">Agents français</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">0</div>
+            <div class="hero-stat-label" data-fr="Recrutement nécessaire" data-en="Hiring needed">Recrutement nécessaire</div>
+          </div>
+        </div>
+        <div class="hero-pitch" data-fr="« Votre solution, notre priorité »" data-en="« Your solution, our priority »">
+          « Votre solution, notre priorité »
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-inner">
+    <div class="proof-item">
+      <div class="proof-num" data-fr="PME" data-en="SMBs">PME</div>
+      <div class="proof-label" data-fr="1 à 250 salariés" data-en="1 to 250 employees">1 à 250 salariés</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-item">
+      <div class="proof-num">B2B</div>
+      <div class="proof-label" data-fr="Uniquement" data-en="Only">Uniquement</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-item">
+      <div class="proof-num" data-fr="Grand Est" data-en="France">Grand Est</div>
+      <div class="proof-label" data-fr="& France entière" data-en="& nationwide">& France entière</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-item">
+      <div class="proof-num">+</div>
+      <div class="proof-label" data-fr="Services & BTP / Industrie" data-en="Services & Construction / Industry">Services & BTP / Industrie</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY ALYA -->
+<section class="why" id="pourquoi">
+  <div class="section-inner">
+    <span class="section-tag" data-fr="Pourquoi nous choisir" data-en="Why choose us">Pourquoi nous choisir</span>
+    <h2 class="section-title" data-fr="La force d'un partenaire,<br>pas d'un prestataire." data-en="The strength of a partner,<br>not a provider.">
+      La force d'un partenaire,<br>pas d'un prestataire.
+    </h2>
+    <div class="why-grid">
+      <ul class="why-list">
+        <li class="why-item">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="why-item-title" data-fr="Qualité premium, sans compromis" data-en="Premium quality, no compromise">Qualité premium, sans compromis</div>
+            <div class="why-item-text" data-fr="Nos agents sont sélectionnés, formés et encadrés selon des standards exigeants. Chaque appel est préparé, chaque contact est soigné." data-en="Our agents are selected, trained and supervised to demanding standards. Every call is prepared, every contact is handled with care.">
+              Nos agents sont sélectionnés, formés et encadrés selon des standards exigeants. Chaque appel est préparé, chaque contact est soigné.
+            </div>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="why-item-title" data-fr="100% Français, basé à Strasbourg" data-en="100% French, based in Strasbourg">100% Français, basé à Strasbourg</div>
+            <div class="why-item-text" data-fr="Tous nos agents sont francophones natifs, ancrés en France. Finis les centres d'appels offshore : ici, on parle votre langue, on comprend vos clients." data-en="All our agents are native French speakers, based in France. No more offshore call centers: we speak your language, we understand your clients.">
+              Tous nos agents sont francophones natifs, ancrés en France. Finis les centres d'appels offshore : ici, on parle votre langue, on comprend vos clients.
+            </div>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="why-item-title" data-fr="Approche consultative & métier" data-en="Consultative & business approach">Approche consultative & métier</div>
+            <div class="why-item-text" data-fr="Avant de décrocher le téléphone, on comprend votre secteur, vos clients, votre offre. Notre discours est adapté, crédible, convaincant." data-en="Before picking up the phone, we understand your industry, your clients, your offer. Our pitch is adapted, credible, convincing.">
+              Avant de décrocher le téléphone, on comprend votre secteur, vos clients, votre offre. Notre discours est adapté, crédible, convaincant.
+            </div>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <div>
+            <div class="why-item-title" data-fr="Reporting transparent & régulier" data-en="Transparent & regular reporting">Reporting transparent & régulier</div>
+            <div class="why-item-text" data-fr="Vous suivez vos résultats en temps réel. Nombre d'appels, taux de contact, RDV pris — vous savez exactement ce qu'on fait pour vous." data-en="You track your results in real time. Number of calls, contact rates, appointments booked — you know exactly what we're doing for you.">
+              Vous suivez vos résultats en temps réel. Nombre d'appels, taux de contact, RDV pris — vous savez exactement ce qu'on fait pour vous.
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="why-visual">
+        <div class="why-card">
+          <div class="why-card-title" data-fr="Ce que vous gagnez" data-en="What you gain">Ce que vous gagnez</div>
+          <div class="why-card-sub" data-fr="En confiant votre prospection à Alya" data-en="By entrusting your prospecting to Alya">En confiant votre prospection à Alya</div>
+          <ul class="why-checklist">
+            <li class="why-check">
+              <span class="check-icon"></span>
+              <span data-fr="Zéro temps passé à prospecter" data-en="Zero time spent prospecting">Zéro temps passé à prospecter</span>
+            </li>
+            <li class="why-check">
+              <span class="check-icon"></span>
+              <span data-fr="Des RDV qualifiés livrés clé en main" data-en="Qualified appointments delivered turnkey">Des RDV qualifiés livrés clé en main</span>
+            </li>
+            <li class="why-check">
+              <span class="check-icon"></span>
+              <span data-fr="Moins cher qu'un commercial interne" data-en="Less expensive than an internal salesperson">Moins cher qu'un commercial interne</span>
+            </li>
+            <li class="why-check">
+              <span class="check-icon"></span>
+              <span data-fr="Démarrage rapide, sans recrutement" data-en="Quick start, no hiring needed">Démarrage rapide, sans recrutement</span>
+            </li>
+            <li class="why-check">
+              <span class="check-icon"></span>
+              <span data-fr="Un interlocuteur dédié à votre mission" data-en="A dedicated contact for your mission">Un interlocuteur dédié à votre mission</span>
+            </li>
+            <li class="why-check">
+              <span class="check-icon"></span>
+              <span data-fr="Vous vous concentrez sur ce que vous faites de mieux" data-en="You focus on what you do best">Vous vous concentrez sur ce que vous faites de mieux</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="services-header">
+      <div>
+        <span class="section-tag" data-fr="Nos prestations" data-en="Our services">Nos prestations</span>
+        <h2 class="section-title" data-fr="Trois expertises,<br>une seule mission." data-en="Three expertises,<br>one mission.">
+          Trois expertises,<br>une seule mission.
+        </h2>
+      </div>
+      <p class="section-sub" style="max-width: 300px;" data-fr="Chaque prestation est conçue pour générer de la croissance mesurable pour votre entreprise." data-en="Each service is designed to generate measurable growth for your business.">
+        Chaque prestation est conçue pour générer de la croissance mesurable pour votre entreprise.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <h3 class="service-title" data-fr="Prise de RDV qualifiés" data-en="Qualified appointment setting">Prise de RDV qualifiés</h3>
+        <p class="service-text" data-fr="Nous contactons vos prospects cibles, qualifions leur intérêt et calons des rendez-vous directement dans l'agenda de vos commerciaux. Vous ne rencontrez que des décideurs qui veulent vous voir." data-en="We contact your target prospects, qualify their interest and schedule appointments directly in your sales team's calendar. You only meet decision-makers who want to see you.">
+          Nous contactons vos prospects cibles, qualifions leur intérêt et calons des rendez-vous directement dans l'agenda de vos commerciaux. Vous ne rencontrez que des décideurs qui veulent vous voir.
+        </p>
+        <div class="service-tags">
+          <span class="service-tag" data-fr="Dirigeants & DirCom" data-en="CEOs & Sales Directors">Dirigeants & DirCom</span>
+          <span class="service-tag" data-fr="PME ciblées" data-en="Targeted SMBs">PME ciblées</span>
+          <span class="service-tag" data-fr="RDV livrés clé en main" data-en="Turnkey appointments">RDV clé en main</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <h3 class="service-title" data-fr="Acquisition de nouveaux clients" data-en="New client acquisition">Acquisition de nouveaux clients</h3>
+        <p class="service-text" data-fr="Nous construisons votre pipeline commercial de A à Z : identification des cibles, approche personnalisée, argumentation, traitement des objections et transformation en prospect chaud." data-en="We build your sales pipeline from A to Z: target identification, personalized approach, argumentation, objection handling and conversion into warm prospects.">
+          Nous construisons votre pipeline commercial de A à Z : identification des cibles, approche personnalisée, argumentation, traitement des objections et transformation en prospect chaud.
+        </p>
+        <div class="service-tags">
+          <span class="service-tag" data-fr="Prospection active" data-en="Active prospecting">Prospection active</span>
+          <span class="service-tag" data-fr="Qualification leads" data-en="Lead qualification">Qualification leads</span>
+          <span class="service-tag" data-fr="Pipeline B2B" data-en="B2B pipeline">Pipeline B2B</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <h3 class="service-title" data-fr="Promotion & lancement de produits" data-en="Product promotion & launch">Promotion & lancement de produits</h3>
+        <p class="service-text" data-fr="Vous lancez un nouveau service ou produit ? Nous assurons la campagne d'appels sortants pour informer, créer l'intérêt et générer des opportunités auprès de votre cible." data-en="Launching a new service or product? We handle the outbound call campaign to inform, create interest and generate opportunities with your target audience.">
+          Vous lancez un nouveau service ou produit ? Nous assurons la campagne d'appels sortants pour informer, créer l'intérêt et générer des opportunités auprès de votre cible.
+        </p>
+        <div class="service-tags">
+          <span class="service-tag" data-fr="Campagnes sortantes" data-en="Outbound campaigns">Campagnes sortantes</span>
+          <span class="service-tag" data-fr="Lancement produit" data-en="Product launch">Lancement produit</span>
+          <span class="service-tag" data-fr="Notoriété B2B" data-en="B2B awareness">Notoriété B2B</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="processus">
+  <div class="section-inner">
+    <span class="section-tag" data-fr="Notre approche" data-en="Our approach">Notre approche</span>
+    <h2 class="section-title" data-fr="Du brief au résultat,<br>en 4 étapes." data-en="From brief to result,<br>in 4 steps.">
+      Du brief au résultat,<br>en 4 étapes.
+    </h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-circle">1</div>
+        <h3 class="step-title" data-fr="Brief & Cadrage" data-en="Brief & Scoping">Brief & Cadrage</h3>
+        <p class="step-text" data-fr="On comprend votre offre, vos cibles et vos objectifs. On construit ensemble le discours commercial." data-en="We understand your offer, your targets and your objectives. Together we build the sales pitch.">
+          On comprend votre offre, vos cibles et vos objectifs. On construit ensemble le discours commercial.
+        </p>
+      </div>
+      <div class="process-step">
+        <div class="step-circle">2</div>
+        <h3 class="step-title" data-fr="Ciblage & Fichier" data-en="Targeting & Database">Ciblage & Fichier</h3>
+        <p class="step-text" data-fr="Constitution ou validation du fichier de prospection selon vos critères ICP précis." data-en="Building or validating the prospecting database according to your precise ICP criteria.">
+          Constitution ou validation du fichier de prospection selon vos critères ICP précis.
+        </p>
+      </div>
+      <div class="process-step">
+        <div class="step-circle">3</div>
+        <h3 class="step-title" data-fr="Campagne d'appels" data-en="Call campaign">Campagne d'appels</h3>
+        <p class="step-text" data-fr="Nos agents entament les appels sortants selon le script validé. Chaque échange est documenté." data-en="Our agents begin outbound calls following the approved script. Every exchange is documented.">
+          Nos agents entament les appels sortants selon le script validé. Chaque échange est documenté.
+        </p>
+      </div>
+      <div class="process-step">
+        <div class="step-circle">4</div>
+        <h3 class="step-title" data-fr="Reporting & Suivi" data-en="Reporting & Follow-up">Reporting & Suivi</h3>
+        <p class="step-text" data-fr="Vous recevez un reporting régulier et détaillé. On ajuste ensemble la stratégie si besoin." data-en="You receive regular, detailed reports. We adjust the strategy together if needed.">
+          Vous recevez un reporting régulier et détaillé. On ajuste ensemble la stratégie si besoin.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARGET -->
+<section class="target" id="cibles">
+  <div class="section-inner">
+    <span class="section-tag" data-fr="Nos clients idéaux" data-en="Our ideal clients">Nos clients idéaux</span>
+    <h2 class="section-title" data-fr="On travaille avec les entreprises<br>qui veulent passer à la vitesse supérieure." data-en="We work with companies<br>ready to shift into high gear.">
+      On travaille avec les entreprises<br>qui veulent passer à la vitesse supérieure.
+    </h2>
+    <div class="target-grid">
+      <div class="target-profiles">
+        <div class="profile-card">
+          <div class="profile-icon">DG</div>
+          <div class="profile-info">
+            <div class="profile-role" data-fr="Dirigeant / PDG / Gérant" data-en="CEO / Managing Director">Dirigeant / PDG / Gérant</div>
+            <div class="profile-sector" data-fr="PME Services, IT, RH, Conseil, Compta" data-en="SMB Services, IT, HR, Consulting, Accounting">PME Services, IT, RH, Conseil, Compta</div>
+          </div>
+          <span class="profile-badge">Services B2B</span>
+        </div>
+        <div class="profile-card">
+          <div class="profile-icon">DC</div>
+          <div class="profile-info">
+            <div class="profile-role" data-fr="Directeur Commercial" data-en="Sales Director">Directeur Commercial</div>
+            <div class="profile-sector" data-fr="PME BTP, Industrie, Logistique" data-en="SMB Construction, Industry, Logistics">PME BTP, Industrie, Logistique</div>
+          </div>
+          <span class="profile-badge">BTP / Industrie</span>
+        </div>
+        <div class="profile-card">
+          <div class="profile-icon">RP</div>
+          <div class="profile-info">
+            <div class="profile-role" data-fr="Responsable Projets / Direction" data-en="Project Manager / Management">Responsable Projets / Direction</div>
+            <div class="profile-sector" data-fr="PME en croissance, sans équipe commerciale dédiée" data-en="Growing SMBs without a dedicated sales team">PME sans équipe commerciale dédiée</div>
+          </div>
+          <span class="profile-badge" data-fr="Toute PME B2B" data-en="All B2B SMBs">Toute PME B2B</span>
+        </div>
+      </div>
+
+      <div class="target-text">
+        <div class="target-block">
+          <div class="target-block-title" data-fr="Vous n'avez pas d'équipe de prospection ?" data-en="You don't have a prospecting team?">Vous n'avez pas d'équipe de prospection ?</div>
+          <div class="target-block-text" data-fr="Alya devient votre force commerciale externalisée. On prospecte à votre place, avec votre identité, votre discours." data-en="Alya becomes your outsourced commercial force. We prospect on your behalf, with your identity and your pitch.">Alya devient votre force commerciale externalisée. On prospecte à votre place, avec votre identité, votre discours.</div>
+        </div>
+        <div class="target-block">
+          <div class="target-block-title" data-fr="Votre équipe commerciale est débordée ?" data-en="Your sales team is overwhelmed?">Votre équipe commerciale est débordée ?</div>
+          <div class="target-block-text" data-fr="Nous prenons en charge la prospection froide pour que vos commerciaux se concentrent uniquement sur ce qu'ils font de mieux : vendre." data-en="We handle cold prospecting so your salespeople can focus solely on what they do best: selling.">Nous prenons en charge la prospection froide pour que vos commerciaux se concentrent uniquement sur ce qu'ils font de mieux : vendre.</div>
+        </div>
+        <div class="target-block">
+          <div class="target-block-title" data-fr="Vous lancez un nouveau produit ou service ?" data-en="Launching a new product or service?">Vous lancez un nouveau produit ou service ?</div>
+          <div class="target-block-text" data-fr="Nous structurons une campagne d'appels ciblée pour maximiser votre lancement et identifier rapidement vos premiers clients." data-en="We structure a targeted call campaign to maximize your launch and quickly identify your first clients.">Nous structurons une campagne d'appels ciblée pour maximiser votre lancement et identifier rapidement vos premiers clients.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <span class="section-tag" data-fr="Parlons de votre projet" data-en="Let's talk about your project">Parlons de votre projet</span>
+    <h2 class="section-title" data-fr="Prêt à externaliser<br>votre prospection ?" data-en="Ready to outsource<br>your prospecting?">
+      Prêt à externaliser<br>votre prospection ?
+    </h2>
+    <p class="section-sub" data-fr="Décrivez-nous votre besoin, nous revenons vers vous sous 24h avec une proposition adaptée." data-en="Tell us about your needs, we'll get back to you within 24h with a tailored proposal.">
+      Décrivez-nous votre besoin, nous revenons vers vous sous 24h avec une proposition adaptée.
+    </p>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-block">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-block-title" data-fr="Localisation" data-en="Location">Localisation</div>
+            <div class="contact-block-val">Strasbourg, Alsace</div>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-block-title" data-fr="Délai de réponse" data-en="Response time">Délai de réponse</div>
+            <div class="contact-block-val" data-fr="Sous 24h ouvrées" data-en="Within 24 business hours">Sous 24h ouvrées</div>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-block-title" data-fr="Première consultation" data-en="First consultation">Première consultation</div>
+            <div class="contact-block-val" data-fr="Gratuite & sans engagement" data-en="Free & no obligation">Gratuite & sans engagement</div>
+          </div>
+        </div>
+        <div style="margin-top: 16px; padding: 24px; background: rgba(0,188,212,0.08); border: 1px solid rgba(0,188,212,0.2); border-radius: 12px;">
+          <p style="font-family:'Cormorant Garamond',serif; font-size:18px; font-style:italic; color:rgba(255,255,255,0.8); line-height:1.5;" data-fr="« On prend en charge toute votre prospection B2B et on vous génère des RDV qualifiés — vous n'avez plus qu'à closer. »" data-en="« We handle all your B2B prospecting and deliver qualified appointments — you just have to close. »">
+            « On prend en charge toute votre prospection B2B et on vous génère des RDV qualifiés — vous n'avez plus qu'à closer. »
+          </p>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <div id="formContainer">
+          <div class="form-row">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label data-fr="Prénom" data-en="First name">Prénom</label>
+              <input type="text" id="fname" placeholder="Jean" />
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+              <label data-fr="Nom" data-en="Last name">Nom</label>
+              <input type="text" id="lname" placeholder="Martin" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group" style="margin-bottom:0;">
+              <label data-fr="Email professionnel" data-en="Professional email">Email professionnel</label>
+              <input type="email" id="email" placeholder="jean.martin@entreprise.fr" />
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label data-fr="Téléphone" data-en="Phone number">Téléphone</label>
+              <input type="tel" id="phone" placeholder="+33 6 00 00 00 00" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label data-fr="Entreprise" data-en="Company">Entreprise</label>
+            <input type="text" id="company" placeholder="Nom de votre société" />
+          </div>
+          <div class="form-group">
+            <label data-fr="Secteur d'activité" data-en="Industry">Secteur d'activité</label>
+            <select id="sector">
+              <option value="" data-fr="Sélectionnez votre secteur" data-en="Select your industry">Sélectionnez votre secteur</option>
+              <option value="services" data-fr="Services aux entreprises (IT, RH, Conseil…)" data-en="Business services (IT, HR, Consulting…)">Services aux entreprises (IT, RH, Conseil…)</option>
+              <option value="btp" data-fr="BTP / Industrie / Logistique" data-en="Construction / Industry / Logistics">BTP / Industrie / Logistique</option>
+              <option value="other" data-fr="Autre secteur" data-en="Other industry">Autre secteur</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-fr="Votre besoin" data-en="Your need">Votre besoin</label>
+            <textarea id="message" placeholder="Décrivez votre besoin en quelques lignes..."></textarea>
+          </div>
+          <button class="form-submit" onclick="submitForm()" data-fr="Envoyer ma demande →" data-en="Send my request →">Envoyer ma demande →</button>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <span class="serif" data-fr="Merci !" data-en="Thank you!">Merci !</span>
+          <p data-fr="Votre demande a bien été reçue. Un membre de l'équipe Alya vous contactera sous 24h." data-en="Your request has been received. A member of the Alya team will contact you within 24 hours.">
+            Votre demande a bien été reçue. Un membre de l'équipe Alya vous contactera sous 24h.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2025 Alya — <span data-fr="Tous droits réservés" data-en="All rights reserved">Tous droits réservés</span> · Strasbourg, France</div>
+  <div class="footer-tagline" data-fr="Votre solution, notre priorité." data-en="Your solution, our priority.">Votre solution, notre priorité.</div>
+</footer>
+
+<script>
+  // ── LANGUAGE SYSTEM ──
+  let currentLang = 'fr';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+    document.querySelectorAll('[data-fr]').forEach(el => {
+      const text = el.getAttribute(`data-${lang}`);
+      if (text) el.innerHTML = text;
+    });
+    document.querySelectorAll('option[data-fr]').forEach(el => {
+      const text = el.getAttribute(`data-${lang}`);
+      if (text) el.textContent = text;
+    });
+  }
+
+  // ── NAV SCROLL ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  });
+
+  // ── MOBILE MENU ──
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // ── SMOOTH SCROLL ──
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // ── FORM ──
+  function submitForm() {
+    const email = document.getElementById('email').value;
+    const fname = document.getElementById('fname').value;
+    if (!fname || !email) {
+      alert(currentLang === 'fr' ? 'Merci de remplir au moins votre prénom et email.' : 'Please fill in at least your name and email.');
+      return;
+    }
+    document.getElementById('formContainer').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+
+  // ── INTERSECTION OBSERVER for scroll animations ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .process-step, .profile-card, .why-item, .target-block').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
