@@ -1516,10 +1516,19 @@
     btn.disabled = true;
 
     try {
+      const formData = new FormData();
+      formData.append('Prenom', fname);
+      formData.append('Nom', lname);
+      formData.append('Email', email);
+      formData.append('Telephone', phone);
+      formData.append('Entreprise', company);
+      formData.append('Secteur', sector);
+      formData.append('Message', message);
+
       const res = await fetch('https://formspree.io/f/mgobagez', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ Prenom: fname, Nom: lname, Email: email, Telephone: phone, Entreprise: company, Secteur: sector, Message: message })
+        headers: { 'Accept': 'application/json' },
+        body: formData
       });
       if (res.ok) {
         document.getElementById('formContainer').style.display = 'none';
@@ -1528,8 +1537,8 @@
         throw new Error('Erreur serveur');
       }
     } catch(e) {
-      alert(currentLang === 'fr' ? 'Une erreur est survenue, merci de réessayer.' : 'An error occurred, please try again.');
-      btn.textContent = currentLang === 'fr' ? 'Envoyer ma demande →' : 'Send my request →';
+      alert(currentLang === 'fr' ? 'Une erreur est survenue, merci de r\u00e9essayer.' : 'An error occurred, please try again.');
+      btn.textContent = currentLang === 'fr' ? 'Envoyer ma demande \u2192' : 'Send my request \u2192';
       btn.disabled = false;
     }
   }
